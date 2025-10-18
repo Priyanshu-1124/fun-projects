@@ -1,0 +1,104 @@
+:root{
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --output: linear-gradient(180deg,#111827, #0b1220);
+  --btn: #e6e9ee;
+  --btn-operator: #ff9f1c;
+  --btn-equals: #34c759;
+  --btn-clear: #fe4762;
+  --muted: #98a0b3;
+  --glass: rgba(255,255,255,0.04);
+}
+
+*{
+  box-sizing:border-box
+}
+html,body{
+  height:100%
+}
+
+.container{
+  width:360px;
+  max-width:96%;
+  margin:32px auto;
+  background:var(--panel);
+  border-radius:14px;
+  padding:16px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+.output-area{
+  background:var(--output);
+  border-radius:10px;
+  padding:14px;
+  min-height:84px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+  margin-bottom:14px;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.35);
+}
+.result{
+  margin:0;
+  font-size:2rem;
+  line-height:1;
+  color:#fff;
+  padding:0 6px;
+  width:100%;
+  text-align:right;
+  font-weight:600;
+}
+
+.button-grid > div{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.button-grid button{
+  border: none;
+  background: var(--btn);
+  color: #0b1220;
+  padding:14px 10px;
+  font-size:1.05rem;
+  border-radius:10px;
+  cursor:pointer;
+  transition: 0.08s ease;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.12);
+  font-weight:600;
+  user-select:none;
+}
+
+.button-grid > div > button:nth-child(4),
+.button-grid > div:nth-child(1) > button:nth-child(3){
+  background: var(--btn-operator);
+  color:#fff;
+  box-shadow: 0 6px 18px rgba(255,159,28,0.18);
+}
+
+.button-grid > div:nth-child(5) > button:nth-child(3){
+  background: var(--btn-equals);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(52,199,89,0.18);
+}
+
+.button-grid > div:nth-child(1) > button:nth-child(1){
+  background: var(--btn-clear);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(254,71,98,0.18);
+}
+
+.button-grid > div:first-child > button:first-child{
+  font-weight:700;
+}
+.button-grid > div:first-child > button:nth-child(2){
+  background: var(--glass);
+  color: var(--muted);
+}
+
+/* Interactions */
+.button-grid button:hover{ transform: translateY(-3px) }
+.button-grid button:active{ transform: translateY(0); opacity: .9 }
+.button-grid button:focus{ outline: none }
